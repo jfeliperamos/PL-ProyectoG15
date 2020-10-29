@@ -1,0 +1,5 @@
+VARIABLES
+    i,max,min:NUM;
+    s:SEQ(NUM);
+    bool1:SEQ(LOG);
+    b:LOG;
