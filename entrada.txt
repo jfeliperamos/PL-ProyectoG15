@@ -3,3 +3,4 @@ VARIABLES
     s:SEQ(NUM);
     bool1:SEQ(LOG);
     b:LOG;
+    a:NUM;
