@@ -1,5 +1,22 @@
 VARIABLES
-    i,max,min:NUM;
-    s:SEQ(NUM);
-    bool1:SEQ(LOG);
-    b:LOG;
+    variable1:NUM;
+    variable2,variable3:NUM;
+    res:NUM;
+    p,q:LOG;
+    sec1,listavacia:SEQ(NUM);
+    sec2:SEQ(LOG);
+INSTRUCCIONES
+
+    variable1=2;
+    variable2=variable3;
+    variable3=-55;
+
+    listavacia=[];
+
+    res=variable3+varible1*variable1;
+
+    p=t;
+    q=f;
+
+    sec1=[1,2,4,variable1,variable1+variable3];
+    sec2=[t,t,f,q];
