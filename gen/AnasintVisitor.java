@@ -46,17 +46,11 @@ public interface AnasintVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSubprogramas(Anasint.SubprogramasContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Anasint#funciones_predicado}.
+	 * Visit a parse tree produced by {@link Anasint#funciones}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFunciones_predicado(Anasint.Funciones_predicadoContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Anasint#funciones_normal}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFunciones_normal(Anasint.Funciones_normalContext ctx);
+	T visitFunciones(Anasint.FuncionesContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Anasint#instrucciones}.
 	 * @param ctx the parse tree

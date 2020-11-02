@@ -87,25 +87,13 @@ public class AnasintBaseListener implements AnasintListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunciones_predicado(Anasint.Funciones_predicadoContext ctx) { }
+	@Override public void enterFunciones(Anasint.FuncionesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunciones_predicado(Anasint.Funciones_predicadoContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterFunciones_normal(Anasint.Funciones_normalContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFunciones_normal(Anasint.Funciones_normalContext ctx) { }
+	@Override public void exitFunciones(Anasint.FuncionesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

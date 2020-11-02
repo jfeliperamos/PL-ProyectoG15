@@ -67,25 +67,15 @@ public interface AnasintListener extends ParseTreeListener {
 	 */
 	void exitSubprogramas(Anasint.SubprogramasContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Anasint#funciones_predicado}.
+	 * Enter a parse tree produced by {@link Anasint#funciones}.
 	 * @param ctx the parse tree
 	 */
-	void enterFunciones_predicado(Anasint.Funciones_predicadoContext ctx);
+	void enterFunciones(Anasint.FuncionesContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link Anasint#funciones_predicado}.
+	 * Exit a parse tree produced by {@link Anasint#funciones}.
 	 * @param ctx the parse tree
 	 */
-	void exitFunciones_predicado(Anasint.Funciones_predicadoContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link Anasint#funciones_normal}.
-	 * @param ctx the parse tree
-	 */
-	void enterFunciones_normal(Anasint.Funciones_normalContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Anasint#funciones_normal}.
-	 * @param ctx the parse tree
-	 */
-	void exitFunciones_normal(Anasint.Funciones_normalContext ctx);
+	void exitFunciones(Anasint.FuncionesContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Anasint#instrucciones}.
 	 * @param ctx the parse tree

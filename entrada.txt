@@ -8,7 +8,7 @@ VARIABLES
     sec2:SEQ(LOG);
 SUBPROGRAMAS
 
-    FUNCION pruebafuncion(LOG b) dev (LOG a)
+    FUNCION pruebafuncion() dev (LOG a,NUM qq)
     VARIABLES
         res2:NUM;
         ddd:LOG;

@@ -18,8 +18,8 @@ vars: IDENT (COMA vars)* ;
 
 //Funciones:
 
-subprogramas: SUBPROGRAMAS (funciones_predicado | funciones_normal /*| procedimientos*/)+;
-
+subprogramas: SUBPROGRAMAS (funciones /*| procedimientos*/)+;
+/*
 funciones_predicado:
     FUNCION IDENT PARENTESISABIERTO (tipo IDENT (COMA tipo IDENT)*)* PARENTESISCERRADO // Datos entrada, pueden estar vacíos.
     RETURN PARENTESISABIERTO LOGICO expresiones_booleanas PARENTESISCERRADO                 // Datos salida, en este caso solo puede ser valor lógico.
@@ -27,10 +27,10 @@ funciones_predicado:
     RETURN expresiones_booleanas PyC
     FFUNCION
 ;
-
-funciones_normal:
+*/
+funciones:
  FUNCION IDENT PARENTESISABIERTO (tipo IDENT (COMA tipo IDENT)*)* PARENTESISCERRADO // Parámetros de entrada, pueden estar vacios.
- RETURN PARENTESISABIERTO ((ENTERO | SECUENCIA_ENTERA | SECUENCIA_LOGICA) expresiones_enteras | secuencias)(COMA (ENTERO | SECUENCIA_ENTERA | SECUENCIA_LOGICA)  (expresiones_enteras | secuencias))* PARENTESISCERRADO            // Parámetros de salida (obligatorio) Tipo,Expresion
+ RETURN PARENTESISABIERTO (tipo (expresiones_enteras | secuencias))(COMA tipo (expresiones_enteras | secuencias))* PARENTESISCERRADO            // Parámetros de salida (obligatorio) Tipo,Expresion
  variables instrucciones
  RETURN expresion(COMA expresion)* PyC
  FFUNCION
@@ -46,7 +46,7 @@ estructuras: (condicional /*|bucle*/);
 
 condicional: IF PARENTESISABIERTO (NEGACION)?condicion((DISY|CONJ)condicion)* PARENTESISCERRADO THEN (tipo_instrucciones)* (RETURN expresiones_booleanas PyC)? (ELSE ((tipo_instrucciones)*|RETURN expresiones_booleanas PyC))? FSI PyC; ////// --->
 
-condicion: (funciones_predicado | igualdades | desigualdades);
+condicion: (funciones | igualdades | desigualdades);
 igualdades: expresion ESIGUAL expresion;
 desigualdades: expresion (ESDISTINTO | MENOR | MAYOR | MENORIGUAL | MAYORIGUAL) expresion;
 
