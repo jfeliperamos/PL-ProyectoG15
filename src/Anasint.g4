@@ -5,7 +5,7 @@ options{
 
 // Aquí empieza la sintaxis de declaracion de variables
 
-programa: variables instrucciones EOF;
+programa: variables subprogramas instrucciones  EOF;
 
 variables: VARIABLES (decl_vars)+ ;
 
@@ -14,11 +14,43 @@ decl_vars: vars DOSPUNTOS tipo PyC ; //vars
 
 vars: IDENT (COMA vars)* ;
 
+// Subprogramas
+
+//Funciones:
+
+subprogramas: SUBPROGRAMAS (funciones_predicado | funciones_normal /*| procedimientos*/)+;
+
+funciones_predicado:
+    FUNCION IDENT PARENTESISABIERTO (tipo IDENT (COMA tipo IDENT)*)* PARENTESISCERRADO // Datos entrada, pueden estar vacíos.
+    RETURN PARENTESISABIERTO LOGICO expresiones_booleanas PARENTESISCERRADO                 // Datos salida, en este caso solo puede ser valor lógico.
+    variables instrucciones
+    RETURN expresiones_booleanas PyC
+    FFUNCION
+;
+
+funciones_normal:
+ FUNCION IDENT PARENTESISABIERTO (tipo IDENT (COMA tipo IDENT)*)* PARENTESISCERRADO // Parámetros de entrada, pueden estar vacios.
+ RETURN PARENTESISABIERTO ((ENTERO | SECUENCIA_ENTERA | SECUENCIA_LOGICA) expresiones_enteras | secuencias)(COMA (ENTERO | SECUENCIA_ENTERA | SECUENCIA_LOGICA)  (expresiones_enteras | secuencias))* PARENTESISCERRADO            // Parámetros de salida (obligatorio) Tipo,Expresion
+ variables instrucciones
+ RETURN expresion(COMA expresion)* PyC
+ FFUNCION
+ ;
+
 // Aquí empiezan las instrucciones, asignaciones a variables y eso
 
-instrucciones: INSTRUCCIONES (instrucs)+ ;
+instrucciones: INSTRUCCIONES (tipo_instrucciones)+ ;
 
-instrucs: IDENT ASIG expresion PyC;
+tipo_instrucciones: (instruccion_asignacion | estructuras);
+
+estructuras: (condicional /*|bucle*/);
+
+condicional: IF PARENTESISABIERTO (NEGACION)?condicion((DISY|CONJ)condicion)* PARENTESISCERRADO THEN (tipo_instrucciones)* (RETURN expresiones_booleanas PyC)? (ELSE ((tipo_instrucciones)*|RETURN expresiones_booleanas PyC))? FSI PyC; ////// --->
+
+condicion: (funciones_predicado | igualdades | desigualdades);
+igualdades: expresion ESIGUAL expresion;
+desigualdades: expresion (ESDISTINTO | MENOR | MAYOR | MENORIGUAL | MAYORIGUAL) expresion;
+
+instruccion_asignacion: IDENT ASIG expresion PyC;
 
 expresion: (expresiones_enteras | expresiones_booleanas | secuencias) ;
 
@@ -30,13 +62,14 @@ expresiones_enteras: IDENT
 expresiones_booleanas: (TRUE | FALSE)
     | IDENT;
 
-
 secuencias: CORCHETEABIERTO CORCHETECERRADO
     | CORCHETEABIERTO (secuencia_entera | secuencia_logica) CORCHETECERRADO;
 
 secuencia_entera: expresiones_enteras (COMA expresiones_enteras)*;
 
 secuencia_logica: expresiones_booleanas (COMA expresiones_booleanas)*;
+
+
 
 
 

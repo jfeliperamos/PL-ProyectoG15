@@ -40,17 +40,71 @@ public interface AnasintVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVars(Anasint.VarsContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Anasint#subprogramas}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSubprogramas(Anasint.SubprogramasContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Anasint#funciones_predicado}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunciones_predicado(Anasint.Funciones_predicadoContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Anasint#funciones_normal}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunciones_normal(Anasint.Funciones_normalContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Anasint#instrucciones}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitInstrucciones(Anasint.InstruccionesContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Anasint#instrucs}.
+	 * Visit a parse tree produced by {@link Anasint#tipo_instrucciones}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInstrucs(Anasint.InstrucsContext ctx);
+	T visitTipo_instrucciones(Anasint.Tipo_instruccionesContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Anasint#estructuras}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEstructuras(Anasint.EstructurasContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Anasint#condicional}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCondicional(Anasint.CondicionalContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Anasint#condicion}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCondicion(Anasint.CondicionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Anasint#igualdades}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIgualdades(Anasint.IgualdadesContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Anasint#desigualdades}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDesigualdades(Anasint.DesigualdadesContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Anasint#instruccion_asignacion}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInstruccion_asignacion(Anasint.Instruccion_asignacionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Anasint#expresion}.
 	 * @param ctx the parse tree
