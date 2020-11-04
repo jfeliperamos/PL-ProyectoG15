@@ -31,3 +31,5 @@ MENOR	: '<';
 MAS		: '+';
 MENOS	: '-';
 POR		: '*';
+
+FPROCEDIMIENTO  : 'FPROCEDIMIENTO';
