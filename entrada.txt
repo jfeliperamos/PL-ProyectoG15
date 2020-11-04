@@ -1,5 +1,25 @@
 VARIABLES
-    i,max,min:NUM;
-    s:SEQ(NUM);
-    bool1:SEQ(LOG);
-    b:LOG;
+    variable1:NUM;
+    variable2,variable3:NUM;
+    a:LOG;
+    res:NUM;
+    p,q:LOG;
+    sec1,listavacia:SEQ(NUM);
+    sec2:SEQ(LOG);
+SUBPROGRAMAS
+
+    FUNCION pruebafuncion() dev (LOG a,NUM qq)
+    VARIABLES
+        res2:NUM;
+        ddd:LOG;
+        tr:LOG;
+    INSTRUCCIONES
+        si (4<5 || 1<=2) entonces dev tr;
+         sino
+         a=true;
+         ddd=false;
+        fsi;
+        a=true;
+        dev a;
+    FFUNCION
+INSTRUCCIONES
